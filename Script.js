@@ -1,36 +1,34 @@
-/* ===== ARCHIVOS ===== */
-
 let files = {
 
-html: `<h1>Hola 🚀</h1>
-<p>Tu editor funciona perfecto</p>`,
+html:
+`<h1>Hola VSCode 🚀</h1>
 
-css: `body{
+<p>Editor Android funcionando</p>`,
+
+css:
+`body{
 font-family:Arial;
-text-align:center;
 padding:40px;
-background:#f4f4f4;
+background:#f5f5f5;
 }
 
 h1{
-color:#2563eb;
+color:#0078d7;
 }`,
 
-js: `console.log("CodeHub funcionando");`
+js:
+`console.log("VSCode Mobile Android");`
 
 };
 
-/* ===== TAB ACTUAL ===== */
-
 let current = "html";
 
-/* ===== CARGAR EDITOR ===== */
-
-const editor = document.getElementById("editor");
+const editor =
+document.getElementById("editor");
 
 editor.value = files[current];
 
-/* ===== CAMBIAR TAB ===== */
+/* CAMBIAR TAB */
 
 function changeTab(tab, element){
 
@@ -41,25 +39,34 @@ current = tab;
 editor.value = files[current];
 
 document.querySelectorAll(".tab")
-.forEach(t => t.classList.remove("active"));
+.forEach(t=>{
+t.classList.remove("active");
+});
 
 element.classList.add("active");
 
 }
 
-/* ===== EJECUTAR CODIGO ===== */
+/* EJECUTAR */
 
 function runCode(){
 
 files[current] = editor.value;
 
-const code = `
+const finalCode = `
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
 <style>
+
 ${files.css}
+
 </style>
+
 </head>
 
 <body>
@@ -67,35 +74,80 @@ ${files.css}
 ${files.html}
 
 <script>
+
 ${files.js}
+
 <\/script>
 
 </body>
+
 </html>
+
 `;
 
-document.getElementById("preview").srcdoc = code;
+document.getElementById("preview")
+.srcdoc = finalCode;
 
 }
 
-/* ===== GUARDAR ===== */
+/* MOSTRAR PREVIEW */
 
-function saveProject(){
+function showPreview(){
+
+runCode();
+
+document.getElementById("editorBox")
+.style.display = "none";
+
+document.getElementById("previewBox")
+.style.display = "flex";
+
+document.getElementById("editorBtn")
+.classList.remove("active");
+
+document.getElementById("previewBtn")
+.classList.add("active");
+
+}
+
+/* VOLVER A EDITOR */
+
+document.getElementById("editorBtn")
+.onclick = function(){
+
+document.getElementById("editorBox")
+.style.display = "flex";
+
+document.getElementById("previewBox")
+.style.display = "none";
+
+document.getElementById("previewBtn")
+.classList.remove("active");
+
+document.getElementById("editorBtn")
+.classList.add("active");
+
+};
+
+/* AUTOGUARDADO */
+
+editor.addEventListener("input", ()=>{
 
 files[current] = editor.value;
 
 localStorage.setItem(
-"codehub-project",
+"vscode-mobile-android",
 JSON.stringify(files)
 );
 
-alert("Proyecto guardado ✅");
+});
 
-}
+/* CARGAR GUARDADO */
 
-/* ===== CARGAR GUARDADO ===== */
-
-const saved = localStorage.getItem("codehub-project");
+const saved =
+localStorage.getItem(
+"vscode-mobile-android"
+);
 
 if(saved){
 
@@ -103,32 +155,6 @@ files = JSON.parse(saved);
 
 editor.value = files[current];
 
-runCode();
-
 }
-
-/* ===== NUEVO PROYECTO ===== */
-
-function newProject(){
-
-if(confirm("¿Crear nuevo proyecto?")){
-
-files = {
-
-html:"",
-css:"",
-js:""
-
-};
-
-editor.value = "";
-
-runCode();
-
-}
-
-}
-
-/* ===== INICIO ===== */
 
 runCode();
