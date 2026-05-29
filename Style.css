@@ -14,7 +14,7 @@ display:flex;
 flex-direction:column;
 }
 
-/* TOPBAR */
+/* ===== TOPBAR ===== */
 
 .topbar{
 background:#0078d7;
@@ -22,6 +22,12 @@ padding:10px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+
+position:fixed;
+top:0;
+left:0;
+right:0;
+z-index:1000;
 }
 
 .left-buttons{
@@ -61,12 +67,16 @@ cursor:pointer;
 background:#111;
 }
 
-/* TABS */
+/* ===== TABS ===== */
 
 .tabs{
 display:flex;
 overflow-x:auto;
 background:#252526;
+
+margin-top:75px;
+
+flex-shrink:0;
 }
 
 .tabs::-webkit-scrollbar{
@@ -88,32 +98,41 @@ color:white;
 border-bottom:3px solid #0078d7;
 }
 
-/* EDITOR */
+/* ===== EDITOR ===== */
 
 .editor-box{
 flex:1;
-display:flex;
+overflow:auto;
+height:100%;
 }
 
 textarea{
 width:100%;
 height:100%;
+min-height:calc(100vh - 130px);
+
 border:none;
 outline:none;
 resize:none;
+
 background:#1e1e1e;
 color:#d19a66;
+
 padding:20px;
+
 font-size:17px;
 font-family:monospace;
-line-height:1.5;
+line-height:1.6;
+
+overflow:auto;
 }
 
-/* PREVIEW */
+/* ===== PREVIEW ===== */
 
 .preview-box{
 display:none;
 flex:1;
+overflow:auto;
 background:white;
 }
 
@@ -124,7 +143,7 @@ border:none;
 background:white;
 }
 
-/* ANDROID RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 
 @media(max-width:700px){
 
@@ -145,6 +164,10 @@ flex:1;
 .switch{
 width:100%;
 justify-content:center;
+}
+
+.tabs{
+margin-top:120px;
 }
 
 textarea{
