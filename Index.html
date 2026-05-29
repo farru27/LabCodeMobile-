@@ -3,26 +3,50 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
 
-<title>CodeHub Mobile</title>
+<title>VSCode Mobile</title>
 
 <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
 
-<!-- HEADER -->
+<!-- TOPBAR -->
 
-<div class="header">
+<div class="topbar">
 
-<div class="logo">
-CodeHub Mobile
+<div class="left-buttons">
+
+<button class="btn run"
+onclick="runCode()">
+▶ Ejecutar
+</button>
+
+<button class="btn view"
+onclick="showPreview()">
+🖥 Ver
+</button>
+
 </div>
 
-<div class="actions">
-<button class="run" onclick="runCode()">▶ Ejecutar</button>
-<button class="save" onclick="saveProject()">💾 Guardar</button>
+<div class="switch">
+
+<button class="switch-btn active"
+id="editorBtn">
+Editor
+</button>
+
+<button class="switch-btn"
+id="previewBtn">
+Preview
+</button>
+
 </div>
 
 </div>
@@ -31,36 +55,41 @@ CodeHub Mobile
 
 <div class="tabs">
 
-<div class="tab active" onclick="changeTab('html', this)">
-HTML
+<div class="tab active"
+onclick="changeTab('html', this)">
+📄 index.html
 </div>
 
-<div class="tab" onclick="changeTab('css', this)">
-CSS
+<div class="tab"
+onclick="changeTab('css', this)">
+🎨 style.css
 </div>
 
-<div class="tab" onclick="changeTab('js', this)">
-JS
+<div class="tab"
+onclick="changeTab('js', this)">
+⚡ script.js
 </div>
 
 </div>
 
 <!-- EDITOR -->
 
-<div class="editor-container">
+<div class="editor-box"
+id="editorBox">
 
-<textarea id="editor"></textarea>
+<textarea id="editor"
+spellcheck="false">
+</textarea>
 
-<div class="preview">
+</div>
+
+<!-- PREVIEW -->
+
+<div class="preview-box"
+id="previewBox">
+
 <iframe id="preview"></iframe>
-</div>
 
-</div>
-
-<!-- BOTON + -->
-
-<div class="add-project" onclick="newProject()">
-+
 </div>
 
 <script src="script.js"></script>
