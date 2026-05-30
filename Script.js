@@ -72,7 +72,7 @@ Esta política puede actualizarse en futuras versiones de la aplicación.
 <h3>Última actualización</h3>
 
 <p>
-Agosto 2026
+31 de mayo de 2026
 </p>
 
 </div>
