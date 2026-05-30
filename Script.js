@@ -1,21 +1,84 @@
 function showPrivacy(){
 
-alert(
+document.body.innerHTML = `
 
-"⚖ POLÍTICA Y PRIVACIDAD\n\n" +
+<div style="
+background:#1e1e1e;
+color:white;
+min-height:100vh;
+padding:20px;
+font-family:Arial,sans-serif;
+">
 
-"VSCode Mobile es una aplicación para crear, editar y ejecutar código.\n\n" +
+<button onclick="location.reload()" style="
+background:#0078d7;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:12px;
+margin-bottom:20px;
+font-size:16px;
+">
+⬅ Volver
+</button>
 
-"La aplicación no recopila datos personales.\n\n" +
+<h1 style="color:#0078d7;">
+⚖ Política de Privacidad
+</h1>
 
-"Los proyectos se guardan únicamente en tu dispositivo mediante LocalStorage.\n\n" +
+<div style="
+background:#252526;
+padding:15px;
+border-radius:12px;
+margin-top:15px;
+">
 
-"No compartimos información con terceros.\n\n" +
+<h3>Información General</h3>
 
-"La aplicación puede actualizar esta política en futuras versiones.\n\n" +
+<p>
+VSCode Mobile es un editor de código para dispositivos Android.
+</p>
 
-"Última actualización: 31 de mayo de 2026."
+<h3>Privacidad</h3>
 
-);
+<p>
+La aplicación no recopila datos personales como nombre, correo electrónico o ubicación.
+</p>
+
+<h3>Almacenamiento</h3>
+
+<p>
+Los proyectos se almacenan únicamente en el dispositivo mediante LocalStorage.
+</p>
+
+<h3>Terceros</h3>
+
+<p>
+No compartimos información con terceros.
+</p>
+
+<h3>Seguridad</h3>
+
+<p>
+Toda la información permanece en el dispositivo del usuario.
+</p>
+
+<h3>Cambios</h3>
+
+<p>
+Esta política puede actualizarse en futuras versiones de la aplicación.
+</p>
+
+<h3>Última actualización</h3>
+
+<p>
+31 de mayo de 2026
+</p>
+
+</div>
+
+</div>
+
+`;
 
 }
