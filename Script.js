@@ -158,3 +158,24 @@ editor.value = files[current];
 }
 
 runCode();
+function showPrivacy(){
+
+alert(
+
+"⚖ POLÍTICA Y PRIVACIDAD\n\n" +
+
+"VSCode Mobile es una aplicación para crear, editar y ejecutar código.\n\n" +
+
+"• No recopilamos datos personales.\n\n" +
+
+"• Los proyectos se almacenan únicamente en tu dispositivo.\n\n" +
+
+"• No compartimos información con terceros.\n\n" +
+
+"• La aplicación puede recibir actualizaciones futuras.\n\n" +
+
+"• Última actualización: 31 de mayo de 2026."
+
+);
+
+}
