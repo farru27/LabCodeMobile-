@@ -1,43 +1,62 @@
 function showPrivacy(){
 
-document.body.innerHTML = `
+const privacyWindow =
+window.open("", "_blank");
 
-<div style="
+privacyWindow.document.write(`
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+
+<title>
+Política y Privacidad
+</title>
+
+<style>
+
+body{
 background:#1e1e1e;
 color:white;
-min-height:100vh;
-padding:20px;
 font-family:Arial,sans-serif;
-">
+padding:20px;
+line-height:1.7;
+}
 
-<button onclick="location.reload()" style="
-background:#0078d7;
-color:white;
-border:none;
-padding:12px 18px;
-border-radius:12px;
-margin-bottom:20px;
-font-size:16px;
-cursor:pointer;
-">
-⬅ Volver
-</button>
-
-<h1 style="
+h1{
 color:#0078d7;
-margin-bottom:20px;
-">
-⚖ Política y Privacidad
-</h1>
+}
 
-<div style="
+.card{
 background:#252526;
 padding:15px;
 border-radius:12px;
 margin-bottom:15px;
-">
+}
 
-<h3>Información General</h3>
+</style>
+
+</head>
+
+<body>
+
+<h1>
+⚖ Política y Privacidad
+</h1>
+
+<div class="card">
+
+<h3>
+Información General
+</h3>
 
 <p>
 VSCode Mobile es una aplicación diseñada para crear, editar y ejecutar código desde dispositivos Android.
@@ -45,148 +64,83 @@ VSCode Mobile es una aplicación diseñada para crear, editar y ejecutar código
 
 </div>
 
-<div style="
-background:#252526;
-padding:15px;
-border-radius:12px;
-margin-bottom:15px;
-">
+<div class="card">
 
-<h3>Recopilación de Datos</h3>
+<h3>
+Recopilación de Datos
+</h3>
 
 <p>
-VSCode Mobile no recopila información personal identificable como nombres, correos electrónicos, direcciones o números de teléfono.
+La aplicación no recopila nombres, correos electrónicos, direcciones ni números de teléfono.
 </p>
 
 </div>
 
-<div style="
-background:#252526;
-padding:15px;
-border-radius:12px;
-margin-bottom:15px;
-">
+<div class="card">
 
-<h3>Almacenamiento Local</h3>
+<h3>
+Almacenamiento Local
+</h3>
 
 <p>
-Los proyectos, configuraciones y preferencias se almacenan únicamente en el dispositivo mediante LocalStorage.
+Los proyectos y configuraciones se almacenan únicamente en el dispositivo mediante LocalStorage.
 </p>
 
 </div>
 
-<div style="
-background:#252526;
-padding:15px;
-border-radius:12px;
-margin-bottom:15px;
-">
+<div class="card">
 
-<h3>Permisos</h3>
+<h3>
+Permisos
+</h3>
 
 <p>
-La aplicación utiliza únicamente los permisos necesarios para su correcto funcionamiento.
+La aplicación utiliza únicamente los permisos necesarios para su funcionamiento.
 </p>
 
 </div>
 
-<div style="
-background:#252526;
-padding:15px;
-border-radius:12px;
-margin-bottom:15px;
-">
+<div class="card">
 
-<h3>Servicios de Terceros</h3>
+<h3>
+Seguridad
+</h3>
 
 <p>
-La aplicación puede utilizar servicios externos para mejorar la experiencia del usuario o incorporar nuevas funciones en futuras versiones.
+Se aplican medidas razonables para proteger los datos almacenados localmente.
 </p>
 
 </div>
 
-<div style="
-background:#252526;
-padding:15px;
-border-radius:12px;
-margin-bottom:15px;
-">
+<div class="card">
 
-<h3>Publicidad</h3>
+<h3>
+Menores de Edad
+</h3>
 
 <p>
-Actualmente VSCode Mobile no muestra publicidad. En futuras versiones podrían incorporarse servicios publicitarios de terceros.
+La aplicación puede ser utilizada por personas de todas las edades.
 </p>
 
 </div>
 
-<div style="
-background:#252526;
-padding:15px;
-border-radius:12px;
-margin-bottom:15px;
-">
+<div class="card">
 
-<h3>Seguridad</h3>
+<h3>
+Cambios en esta Política
+</h3>
 
 <p>
-Se aplican medidas razonables para proteger los datos almacenados dentro de la aplicación.
+Esta política podrá actualizarse en futuras versiones de la aplicación.
 </p>
 
 </div>
 
-<div style="
-background:#252526;
-padding:15px;
-border-radius:12px;
-margin-bottom:15px;
-">
+<div class="card">
 
-<h3>Menores de Edad</h3>
-
-<p>
-La aplicación puede ser utilizada por personas de todas las edades y no recopila deliberadamente información personal de menores.
-</p>
-
-</div>
-
-<div style="
-background:#252526;
-padding:15px;
-border-radius:12px;
-margin-bottom:15px;
-">
-
-<h3>Cambios en esta Política</h3>
-
-<p>
-Esta política podrá actualizarse periódicamente para reflejar cambios en la aplicación o requisitos legales.
-</p>
-
-</div>
-
-<div style="
-background:#252526;
-padding:15px;
-border-radius:12px;
-margin-bottom:15px;
-">
-
-<h3>Contacto</h3>
-
-<p>
-Para consultas relacionadas con la privacidad o el funcionamiento de la aplicación, el usuario podrá comunicarse con el desarrollador a través de los canales oficiales publicados.
-</p>
-
-</div>
-
-<div style="
-background:#252526;
-padding:15px;
-border-radius:12px;
-">
-
-<h3>Última actualización</h3>
+<h3>
+Última actualización
+</h3>
 
 <p>
 31 de mayo de 2026
@@ -194,8 +148,12 @@ border-radius:12px;
 
 </div>
 
-</div>
+</body>
 
-`;
+</html>
+
+`);
+
+privacyWindow.document.close();
 
 }
