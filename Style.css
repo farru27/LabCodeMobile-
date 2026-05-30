@@ -44,21 +44,6 @@ border-radius:12px;
 font-size:15px;
 font-weight:bold;
 cursor:pointer;
-transition:0.2s;
-}
-
-.btn:active{
-transform:scale(0.97);
-}
-
-/* BOTÓN PRIVACIDAD */
-
-.privacy{
-background:#673ab7;
-}
-
-.privacy:hover{
-opacity:0.9;
 }
 
 .switch{
