@@ -1,84 +1,160 @@
-function showPrivacy(){
+let files = {
 
-document.body.innerHTML = `
+html:
+`<h1>Hola VSCode 🚀</h1>
 
-<div style="
-background:#1e1e1e;
-color:white;
-min-height:100vh;
-padding:20px;
-font-family:Arial,sans-serif;
-">
+<p>Editor Android funcionando</p>`,
 
-<button onclick="location.reload()" style="
-background:#0078d7;
-color:white;
-border:none;
-padding:12px 18px;
-border-radius:12px;
-margin-bottom:20px;
-font-size:16px;
-">
-⬅ Volver
-</button>
+css:
+`body{
+font-family:Arial;
+padding:40px;
+background:#f5f5f5;
+}
 
-<h1 style="color:#0078d7;">
-⚖ Política de Privacidad
-</h1>
+h1{
+color:#0078d7;
+}`,
 
-<div style="
-background:#252526;
-padding:15px;
-border-radius:12px;
-margin-top:15px;
-">
+js:
+`console.log("VSCode Mobile Android");`
 
-<h3>Información General</h3>
+};
 
-<p>
-VSCode Mobile es un editor de código para dispositivos Android.
-</p>
+let current = "html";
 
-<h3>Privacidad</h3>
+const editor =
+document.getElementById("editor");
 
-<p>
-La aplicación no recopila datos personales como nombre, correo electrónico o ubicación.
-</p>
+editor.value = files[current];
 
-<h3>Almacenamiento</h3>
+/* CAMBIAR TAB */
 
-<p>
-Los proyectos se almacenan únicamente en el dispositivo mediante LocalStorage.
-</p>
+function changeTab(tab, element){
 
-<h3>Terceros</h3>
+files[current] = editor.value;
 
-<p>
-No compartimos información con terceros.
-</p>
+current = tab;
 
-<h3>Seguridad</h3>
+editor.value = files[current];
 
-<p>
-Toda la información permanece en el dispositivo del usuario.
-</p>
+document.querySelectorAll(".tab")
+.forEach(t=>{
+t.classList.remove("active");
+});
 
-<h3>Cambios</h3>
+element.classList.add("active");
 
-<p>
-Esta política puede actualizarse en futuras versiones de la aplicación.
-</p>
+}
 
-<h3>Última actualización</h3>
+/* EJECUTAR */
 
-<p>
-31 de mayo de 2026
-</p>
+function runCode(){
 
-</div>
+files[current] = editor.value;
 
-</div>
+const finalCode = `
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+${files.css}
+
+</style>
+
+</head>
+
+<body>
+
+${files.html}
+
+<script>
+
+${files.js}
+
+<\/script>
+
+</body>
+
+</html>
 
 `;
 
+document.getElementById("preview")
+.srcdoc = finalCode;
+
 }
+
+/* MOSTRAR PREVIEW */
+
+function showPreview(){
+
+runCode();
+
+document.getElementById("editorBox")
+.style.display = "none";
+
+document.getElementById("previewBox")
+.style.display = "flex";
+
+document.getElementById("editorBtn")
+.classList.remove("active");
+
+document.getElementById("previewBtn")
+.classList.add("active");
+
+}
+
+/* VOLVER A EDITOR */
+
+document.getElementById("editorBtn")
+.onclick = function(){
+
+document.getElementById("editorBox")
+.style.display = "flex";
+
+document.getElementById("previewBox")
+.style.display = "none";
+
+document.getElementById("previewBtn")
+.classList.remove("active");
+
+document.getElementById("editorBtn")
+.classList.add("active");
+
+};
+
+/* AUTOGUARDADO */
+
+editor.addEventListener("input", ()=>{
+
+files[current] = editor.value;
+
+localStorage.setItem(
+"vscode-mobile-android",
+JSON.stringify(files)
+);
+
+});
+
+/* CARGAR GUARDADO */
+
+const saved =
+localStorage.getItem(
+"vscode-mobile-android"
+);
+
+if(saved){
+
+files = JSON.parse(saved);
+
+editor.value = files[current];
+
+}
+
+runCode();
